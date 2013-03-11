@@ -1,6 +1,6 @@
 -- Our Story
 DEBUG = 1
-
+ 
 
 --set game states
 
@@ -178,7 +178,7 @@ function checkLove()
 end
 
 function checkMarriage()
-   if groundTiles.marriageCoords.x == player.x and marriageCheck == false then
+   if groundTiles.marriageCoords.x == player.player.spriteName[1].currentLoc.x and marriageCheck == false then
     marriageCheck = true
     
     --print("close")
@@ -190,7 +190,7 @@ function checkMarriage()
 end
 
 function checkBaby()
-   if groundTiles.babyCoords.x == player.x and babyCheck == false then
+   if groundTiles.babyCoords.x == player.player.spriteName[1].currentLoc.x and babyCheck == false then
     babyCheck = true
    -- fireworkssetup()
     --print("close")

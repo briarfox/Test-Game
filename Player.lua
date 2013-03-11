@@ -30,7 +30,7 @@ function Player:draw()
         self.player.spriteName[1].currentLoc.rotation=0
         
         local t1 = tween(.3,self.player.spriteName[1].currentLoc,{y=300,rotation=360},tween.easing.linear,function() print("jumping") end)
-        local t2 = tween(0.3,self.player.spriteName[1].currentLoc,{y=140,},tween.easing.linear,function() 
+        local t2 = tween(0.3,self.player.spriteName[1].currentLoc,{y=self.player.spriteName[1].currentLoc.y},tween.easing.linear,function() 
                                                                                     print("finished") 
                                                                                     self.jumping = false
                                                                                     end)
