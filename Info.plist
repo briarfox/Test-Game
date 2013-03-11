@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Chris &amp; Kristin Houser</string>
+	<key>Buffer Order</key>
+	<array>
+		<string>Animation</string>
+		<string>Main</string>
+		<string>CutScene</string>
+		<string>Clouds</string>
+		<string>Cats</string>
+		<string>Ground</string>
+		<string>Player</string>
+		<string>README</string>
+	</array>
+	<key>Comments</key>
+	<string>Story of our lives</string>
+	<key>Created</key>
+	<string>2013-02-24 22:50:45 +0000</string>
+	<key>Date</key>
+	<string>February 24, 2013</string>
+	<key>Dependencies</key>
+	<array/>
+	<key>Description</key>
+	<string>Our Story v 1</string>
+	<key>Version</key>
+	<real>1</real>
+</dict>
+</plist>
