@@ -87,7 +87,7 @@ function Cats:loadCats(max)
             
         end
     end
-    
+    dump(self.cats.spriteName,"--")
 end
 
 function Cats:spawn()

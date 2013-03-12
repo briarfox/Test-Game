@@ -69,6 +69,7 @@ end
 -- This function gets called once every frame
 function draw()
     background(213, 211, 211, 255)
+
     
     if pauseGame == false then
     gameTime = gameTime + DeltaTime

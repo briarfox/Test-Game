@@ -15,6 +15,10 @@ function Clouds:init(c,s,h)
     for i=1,self.count do
         local rnd = math.random(3)
         local spriteImg = nil
+        local rndS = math.random(1,3)
+        if rndS == 1 then rndS = .75 end
+        if rndS == 2 then rndS = 1 end
+        if rndS == 3 then rndS = 1.25 end
         local randSprite = math.random(1,3)
             if randSprite == 1 then
                 spriteImg = readImage("Platformer Art:Cloud 1")
@@ -27,7 +31,9 @@ function Clouds:init(c,s,h)
        self.cloudTable[i] =  {  x = math.random(WIDTH,WIDTH +1500),
                                 y = math.random(HEIGHT - self.horizon,HEIGHT - 32),
                                 speed = math.random(10,self.speed),
-                                img = spriteImg }
+                                img = spriteImg, 
+                                size = rndS
+                                }
         tween(self.cloudTable[i].speed,self.cloudTable[i],{x = -70},tween.easing.linear)  
     end
     
@@ -41,15 +47,16 @@ function Clouds:draw()
     self :cloudsUpdate()
     
     for i=1,#self.cloudTable do
-        sprite(self.cloudTable[i].img,self.cloudTable[i].x,self.cloudTable[i].y)
-       -- translate(self.cloudTable[i].x - self.cloudTable[i].speed ,self.cloudTable[i].y)
-       -- if self.cloudTable[i].img == 1 then
-    --sprite("Platformer Art:Cloud 1",self.cloudTable[i].x,self.cloudTable[i].y)
-      --  elseif self.cloudTable[i].img == 2 then
-    --sprite("Platformer Art:Cloud 2",self.cloudTable[i].x,self.cloudTable[i].y)
-      --  elseif self.cloudTable[i].img == 3 then
-    --sprite("Platformer Art:Cloud 3",self.cloudTable[i].x,self.cloudTable[i].y)
-    --end
+       pushMatrix() 
+    scale(self.cloudTable[i].size)
+    local x,y = 0
+    if self.cloudTable[i].size < 1 then
+        x = ((1-self.cloudTable[i].size)*self.cloudTable[i].x)+self.cloudTable[i].x
+    else
+        x = self.cloudTable[i].x
+    end
+        sprite(self.cloudTable[i].img,x,self.cloudTable[i].y)
+    popMatrix()
     end
     
     -- Codea does not automatically call this method
@@ -61,9 +68,10 @@ end
 
 function Clouds:cloudsUpdate()
     
-    pushMatrix()
-   for i=1,#self.cloudTable do
     
+   for i=1,#self.cloudTable do
+    pushMatrix()
+    scale(self.cloudTable[i].size)
     if self.cloudTable[i].x <= -70 then
         self.cloudTable[i].visible = false
     else
@@ -81,7 +89,9 @@ function Clouds:cloudsUpdate()
             tween(self.cloudTable[i].speed,self.cloudTable[i],{
         x = -70},tween.easing.linear)
         end
+        
+        popMatrix()
     end
     
-    popMatrix()
+    
     end

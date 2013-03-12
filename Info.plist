@@ -22,7 +22,9 @@
 	<key>Date</key>
 	<string>February 24, 2013</string>
 	<key>Dependencies</key>
-	<array/>
+	<array>
+		<string>Houser Library</string>
+	</array>
 	<key>Description</key>
 	<string>Our Story v 1</string>
 	<key>Version</key>
