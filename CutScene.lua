@@ -126,7 +126,7 @@ function babyScreen()
     fill(255, 0, 0, 255)
     text("Yup thats Right, We are having a Baby!",x,y) 
     fontSize(32)
-    text("TAP TO START",x,y-50)
+    text("YOU WON!!!",x,y-50)
     popStyle()
    -- fireworksdraw()
     

@@ -14,6 +14,7 @@
 		<string>Ground</string>
 		<string>Player</string>
 		<string>README</string>
+		<string>UI</string>
 	</array>
 	<key>Comments</key>
 	<string>Story of our lives</string>
@@ -24,10 +25,11 @@
 	<key>Dependencies</key>
 	<array>
 		<string>Houser Library</string>
+		<string>backup</string>
 	</array>
 	<key>Description</key>
-	<string>Our Story v 1</string>
+	<string>Our Story v 0.3</string>
 	<key>Version</key>
-	<real>1</real>
+	<real>0.30000001192092896</real>
 </dict>
 </plist>

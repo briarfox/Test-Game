@@ -87,7 +87,7 @@ function Cats:loadCats(max)
             
         end
     end
-    dump(self.cats.spriteName,"--")
+   -- dump(self.cats.spriteName,"--")
 end
 
 function Cats:spawn()
@@ -99,7 +99,7 @@ function Cats:spawn()
     local rnd = math.random(1,4)
     --self.cats.spriteName[1].speed = 10
     if rnd == 1 then
-        print(self.cats.spriteName[1].speed)
+        --print(self.cats.spriteName[1].speed)
         --print(self.cats.spriteName[1].coords)
             --self.cats.spriteName[spawnCount].coords = vec3(WIDTH,120,0)
        self.cats.spriteName[spawnCount].visible = true

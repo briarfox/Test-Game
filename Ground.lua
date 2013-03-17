@@ -1,3 +1,6 @@
+dLoveSprite = true
+dMarriageSprite = true
+dBabySprite = true
 Ground = class()
 
 local lastTile
@@ -45,7 +48,7 @@ function Ground:draw()
     
     self :groundMove(self.speed)
     
-    if gameTime >= 5 then
+    if gameTime >= 5 and dLoveSprite == true then
         
         pushStyle()
         textMode(CENTER)
@@ -59,7 +62,7 @@ function Ground:draw()
         end
         popStyle()
     end
-    if gameTime >= 15 then
+    if gameTime >= 15 and dMarriageSprite == true then
         
         pushStyle()
         textMode(CENTER)
@@ -72,7 +75,7 @@ function Ground:draw()
         end
         popStyle()
     end
-    if gameTime >= 25 then
+    if gameTime >= 25 and dBabySprite == true then
         
         pushStyle()
         textMode(CENTER)
