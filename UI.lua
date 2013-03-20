@@ -9,11 +9,11 @@ function UI:init(x)
     self.m.texture = self.img
     local x = WIDTH - self.heartSize.x
     local y = HEIGHT - self.heartSize.y
-    self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
+  local h1 = self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
     x = x - self.heartSize.x 
-    self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
+   local h2 = self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
     x = x - self.heartSize.x 
-    self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
+   local h3 = self.m:addRect(x,y,self.heartSize.x,self.heartSize.y)
 end
 
 function UI:draw()

@@ -7,7 +7,7 @@ function Animation:init(img,rows,cols)
     -- you can accept and set parameters here
    -- self.animations = {}    
     self.spriteName = {} --tables of sprites
-    self.img = img --hold spritesheet img    
+    self.img = img --hold spritesheet img   
     self.m = mesh()
     self.m.texture = img
     self.cols = cols

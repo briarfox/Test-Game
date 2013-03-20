@@ -66,6 +66,7 @@ end
 
 function Player:checkPoint(distance,mode)
     sound(SOUND_POWERUP, 40616)
+    self.player.spriteName[1].currentLoc.y = self.player.spriteName[1].spawnLoc.y
     self.pauseJump = true
     local finished = false
     local m = mode

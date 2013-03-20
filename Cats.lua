@@ -8,6 +8,7 @@ function Cats:init(coords,max)
     self.img = readImage("Dropbox:cats")
     self.cats = Animation(self.img,8,12)
     self :loadCats(self.max)
+    --dump(self.cats)
     
     
 
@@ -59,7 +60,7 @@ function Cats:loadCats(max)
     for i=1, 5 do
         local rndCat = math.random(1,8)
        self.cats:addSprite(i,self.coords,vec2(80,80))
-    self.cats:speed(i,math.random(4,6),4)
+    self.cats:speed(i,math.random(4,5),4)
         if rndCat == 1 then
             self.cats:addAnimation(i,"left",{27,26,25})
            self.cats.spriteName[i].visible = false
@@ -110,6 +111,41 @@ function Cats:spawn()
         end
     end
     
+end
+
+function Cats:collision(p)
+    --[[
+    local catW = (self.img.x/12)
+    local catH = (self.img.y/8)
+   
+    for i,j in pairs(self.cats.spriteName) do
+        local x = j.currentLoc.x + (catW/2)
+        local y = j.currentLoc.Y + (catH/2)
+ 
+    -- self bottom < other sprite top
+    if y + catH < p.y then
+        return false
+    end
+    -- self top > other sprite bottom
+    if self:getY() > sprite2:getY() + sprite2:getHeight() then
+        return false
+    end
+    -- self left > other sprite right
+    if self:getX() > sprite2:getX() + sprite2:getWidth() then
+        return false
+    end
+    -- self right < other sprite left
+    if self:getX() + self:getWidth() < sprite2:getX() then
+        return false
+    end
+    
+    return true
+end
+
+    
+    end
+    --]]
+     
 end
 
 

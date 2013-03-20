@@ -24,7 +24,6 @@
 	<string>February 24, 2013</string>
 	<key>Dependencies</key>
 	<array>
-		<string>Houser Library</string>
 		<string>backup</string>
 	</array>
 	<key>Description</key>

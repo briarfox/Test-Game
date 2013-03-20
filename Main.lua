@@ -180,7 +180,7 @@ function checkLove()
     loveCheck = true
     pauseGame = true
     groundTiles.moving = false
-    player:checkPoint(400,gameLove)
+    player:checkPoint(500,gameLove)
     --print("close")
     --print(groundTiles.moving)
   -- gameMode = gameLove
@@ -195,7 +195,7 @@ function checkMarriage()
     --print(groundTiles.moving)
     pauseGame = true
     groundTiles.moving = false
-    player:checkPoint(400,gameMarriage)
+    player:checkPoint(500,gameMarriage)
     --gameMode = gameMarriage
     end 
 end
@@ -208,7 +208,7 @@ function checkBaby()
     --print(groundTiles.moving)
     pauseGame = true
     groundTiles.moving = false
-    player:checkPoint(400,gameBaby)
+    player:checkPoint(500,gameBaby)
    -- gameMode = gameBaby
     end 
 end
