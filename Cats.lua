@@ -55,35 +55,35 @@ end
 
 function Cats:loadCats(max)
     
-    
+
     
     for i=1, 5 do
         local rndCat = math.random(1,8)
        self.cats:addSprite(i,self.coords,vec2(80,80))
     self.cats:speed(i,math.random(4,5),4)
         if rndCat == 1 then
-            self.cats:addAnimation(i,"left",{27,26,25})
+            self.cats:addAnimation(i,"left",{15,14,13})
            self.cats.spriteName[i].visible = false
         elseif rndCat ==2 then
-            self.cats:addAnimation(i,"left",{30,29,28})
+            self.cats:addAnimation(i,"left",{18,17,16})
             self.cats.spriteName[i].visible = false
         elseif rndCat ==3 then
-            self.cats:addAnimation(i,"left",{33,32,31}) 
+            self.cats:addAnimation(i,"left",{21,20,19}) 
             self.cats.spriteName[i].visible = false
         elseif rndCat ==4 then
-            self.cats:addAnimation(i,"left",{36,35,34})
+            self.cats:addAnimation(i,"left",{24,23,22})
             self.cats.spriteName[i].visible = false
         elseif rndCat ==5 then
-            self.cats:addAnimation(i,"left",{75,74,73})
+            self.cats:addAnimation(i,"left",{63,62,61})
             self.cats.spriteName[i].visible = false
         elseif rndCat ==6 then
-            self.cats:addAnimation(i,"left",{78,77,76})
+            self.cats:addAnimation(i,"left",{66,65,64})
             self.cats.spriteName[i].visible = false
         elseif rndCat ==7 then
-            self.cats:addAnimation(i,"left",{81,80,79})
+            self.cats:addAnimation(i,"left",{69,68,67})
             self.cats.spriteName[i].visible = false
         elseif rndCat ==8 then
-            self.cats:addAnimation(i,"left",{84,83,82})
+            self.cats:addAnimation(i,"left",{72,71,70})
             self.cats.spriteName[i].visible = false
             
         end

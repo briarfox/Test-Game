@@ -17,7 +17,7 @@ function Clouds:init(c,s,h)
         local spriteImg = nil
         local rndS = math.random(1,3)
         if rndS == 1 then rndS = .75 end
-        if rndS == 2 then rndS = .90 end
+        if rndS == 2 then rndS = .85 end
         if rndS == 3 then rndS = 1 end
         local randSprite = math.random(1,3)
             if randSprite == 1 then

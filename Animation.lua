@@ -1,6 +1,6 @@
 --Sprite Sheet Animation
 --Developed by Chris Houser
-
+--[[
 Animation = class()
 
 function Animation:init(img,rows,cols)
@@ -232,7 +232,7 @@ for i,j in pairs(self.spriteName) do
 end 
 end
 
-
+--]]
 
 
 

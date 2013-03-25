@@ -37,6 +37,7 @@ marriageCheck = false
 babyCheck = false
 -- Use this function to perform your initial setup
 function setup()
+    --tweenBaby()
     version = 0.3
     --------------------------
     b=Backup("Our Story v"..version)
@@ -206,6 +207,7 @@ function checkBaby()
    -- fireworkssetup()
     --print("close")
     --print(groundTiles.moving)
+    tweenBaby()
     pauseGame = true
     groundTiles.moving = false
     player:checkPoint(500,gameBaby)
