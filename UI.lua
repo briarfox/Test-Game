@@ -20,6 +20,7 @@ function UI:draw()
     self.m:draw()
     -- Codea does not automatically call this method
     sprite("SpaceCute:Health Heart")
+    self:hearts()
 end
 
 function UI:touched(touch)
@@ -27,5 +28,13 @@ function UI:touched(touch)
 end
 
 function UI:hearts()
+    
+    for i,j in pairs(cats.cats.spriteName) do
+        
+        if collision(player.player:getRect(1),cats.cats:getRect(i)) then
+            --sound(SOUND_HIT, 35945)
+            print("HIT")
+        end
+    end
     
 end

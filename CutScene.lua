@@ -128,7 +128,12 @@ function babyScreen()
     --m:setColors(255,255,255,255)
     m:draw()
     popMatrix()
-    writeText("We Are Having A Baby!",bLoc)
+    
+    textMode(CENTER)
+    writeText("We Are Having A Baby!",{x=x,y=y+200,s=bLoc.s},color(255, 155, 0, 255))
+
+    
+    
     --[[
     pushStyle()
 
@@ -145,17 +150,22 @@ function babyScreen()
     
 end
 
-function writeText(t,coords)
+function writeText(t,coords,c)
     pushMatrix()
     pushStyle()
-    textMode(CENTER)
+    print(bloc)
     translate(coords.x,coords.y)
        if coords.s ~= nil then scale(coords.s) end
-    --textMode(CENTER)
+    
+    
+    textMode(CENTER)
     font("AmericanTypewriter-Bold")
     fontSize(46)
-    fill(58, 0, 255, 255)
+    
+    if c then fill(c) end
+    --fill(255, 155, 0, 255)
     text(t,0,0) 
+    
     --fontSize(32)
     --text("YOU WON!!!",x,y-50)
     popStyle()

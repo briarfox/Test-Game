@@ -20,38 +20,26 @@ function Cats:draw()
    -- local x = WIDTH
     --for i,k in pairs(self.enemies) do
    self.cats:draw()
+if DEBUG then
+        pushStyle()
+        color(255, 0, 0, 255)
+        strokeWidth(5)
+        for i,j in pairs(self.cats.spriteName) do
+        local p = self.cats:getRect(i)
+        line(p.x,p.y,p.x+p.width,p.y) 
+        line(p.x,p.y,p.x,p.y+p.height)
+        line(p.x,p.y+p.height,p.x+p.width,p.y+p.height)
+        line(p.x+p.width,p.y,p.x+p.width,p.y+p.height)
+        end
+        
+        popStyle()
+    end
 end
 
 function Cats:touched(touch)
     -- Codea does not automatically call this method
 end
 
---[[
-function Cats:loadEnemy(id)
-    
-    
-        for i=1, self.maxEnemy do
-            
-        self.enemies[i] = {
-                            id = id ..i,
-                            coords = vec2(math.random(WIDTH,WIDTH+10000),self.y),
-                            size = self.size,
-                            speed = 9,
-                            alive = true,
-                            visible = false
-                           }
-       -- spriteSheet:loadAnimation(id,coords,size,speed,3,0)
-            
-        end
-                
-         for i,j in pairs(self.enemies) do
-            
-                 -- spriteSheet:loadAnimation(j["id"],j["coords"],j["size"],j["speed"],0,4)      
-        end               
-
-    
-end
-]]--
 
 function Cats:loadCats(max)
     

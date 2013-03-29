@@ -52,9 +52,10 @@ function setup()
 
 
 --setup classes here
-uI = UI()
+
     player = Player({x=200,y=160,rotation=0})
     cats = Cats({x=WIDTH+100,y=120,rotation=0},5)
+    uI = UI()
    -- enemy = Enemy(25,120,vec2(75,75),3)
     clouds = Clouds(cloudCount,cloudSpeed,cloudHorizon)
     groundTiles = Ground(.1,readImage("Platformer Art:Block Grass"))
@@ -71,12 +72,17 @@ uI = UI()
     width = WIDTH
     height = HEIGHT
     print(WIDTH .." "..HEIGHT)
+    
+    
+--parameter.watch(player.player:getRect(1).x)
     --clouds:cloudsUpdate()
 end
 
 -- This function gets called once every frame
 function draw()
     background(213, 211, 211, 255)
+    
+    
 
     
     if pauseGame == false then
@@ -106,6 +112,7 @@ function draw()
 
     background(82, 152, 227, 255)
     --Clouds here
+    
    clouds:draw()
     clouds:cloudsUpdate()
     uI:draw()

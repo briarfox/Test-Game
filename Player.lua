@@ -1,3 +1,4 @@
+local DEBUG = true
 Player = class()
 
 function Player:init(coords,s,i)
@@ -6,6 +7,7 @@ function Player:init(coords,s,i)
         self.spriteW,self.spriteH = spriteSize(img)
     self.player = Animation(img,5,5)
     self.player:addSprite(1,coords,vec2(self.spriteW,self.spriteH))
+    --self.player:addSprite(1,coords,vec2(1,1))
     self.player:addAnimation(1,1,{11,12,13,14,15})
     self.jumping = false
     self.jump = false
@@ -22,8 +24,21 @@ function Player:init(coords,s,i)
 end
 
 function Player:draw()
+    
   
       self.player:draw()
+    if DEBUG then
+        pushStyle()
+        color(255, 0, 0, 255)
+        strokeWidth(5)
+        local p = self.player:getRect(1)
+        line(p.x,p.y,p.x+p.width,p.y) 
+        line(p.x,p.y,p.x,p.y+p.height)
+        line(p.x,p.y+p.height,p.x+p.width,p.y+p.height)
+        line(p.x+p.width,p.y,p.x+p.width,p.y+p.height)
+        
+        popStyle()
+    end
      self:isJumping()
     
     -- Codea does not automatically call this method
@@ -41,6 +56,8 @@ function Player:draw()
         self.jump = false
     
     end
+    
+    
     --]]
     --popMatrix()
 end

@@ -7,6 +7,7 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Animation</string>
+		<string>Collision</string>
 		<string>Main</string>
 		<string>CutScene</string>
 		<string>Clouds</string>
@@ -25,6 +26,7 @@
 	<key>Dependencies</key>
 	<array>
 		<string>backup</string>
+		<string>Houser Library</string>
 	</array>
 	<key>Description</key>
 	<string>Our Story v 0.3</string>
