@@ -3,13 +3,18 @@ Player = class()
 
 function Player:init(coords,s,i)
     -- you can accept and set parameters here
-        img = readImage("Dropbox:ZombieSpriteSheet")
+        img = readImage("Documents:OS_Chris")
         self.spriteW,self.spriteH = spriteSize(img)
-    self.player = Animation(img,5,5)
-    self.player:addSprite(1,coords,vec2(self.spriteW,self.spriteH))
+    self.player = Animation(img,3,4)
+    self.player.drawRectBox = false
+    self.player:addSprite(1,coords,vec2(self.spriteW*.32,
+                            self.spriteH*.32))
     --self.player:addSprite(1,coords,vec2(1,1))
-    self.player:addAnimation(1,1,{11,12,13,14,15})
+    self.player:addAnimation(1,1,{1,2,3,4,5,6,7,8,9,10})
+    self.player.spriteName[1].animSpeed = 3
+    self.player:scaleRect(.25)
     self.jumping = false
+    self.damage = true
     self.jump = false
     self.pauseJump = false
     self.alive = true
@@ -27,18 +32,7 @@ function Player:draw()
     
   
       self.player:draw()
-    if DEBUG then
-        pushStyle()
-        color(255, 0, 0, 255)
-        strokeWidth(5)
-        local p = self.player:getRect(1)
-        line(p.x,p.y,p.x+p.width,p.y) 
-        line(p.x,p.y,p.x,p.y+p.height)
-        line(p.x,p.y+p.height,p.x+p.width,p.y+p.height)
-        line(p.x+p.width,p.y,p.x+p.width,p.y+p.height)
-        
-        popStyle()
-    end
+    
      self:isJumping()
     
     -- Codea does not automatically call this method
@@ -82,7 +76,8 @@ local t2 =  tween(0.3,p.currentLoc,{y=p.currentLoc.y},tween.easing.linear,functi
 end
 
 function Player:checkPoint(distance,mode)
-    sound(SOUND_POWERUP, 40616)
+    player.damage = false
+    sound(SOUND_PICKUP, 40636)
     self.player.spriteName[1].currentLoc.y = self.player.spriteName[1].spawnLoc.y
     self.pauseJump = true
     local finished = false
@@ -95,6 +90,7 @@ function Player:checkPoint(distance,mode)
         print("Call Back")
      
     gameMode = mode
+    player.damage = true
     p.currentLoc.size.x = 1
     p.currentLoc.size.y = 1
     p.currentLoc.x = p.spawnLoc.x
@@ -105,10 +101,10 @@ function Player:checkPoint(distance,mode)
     end
     
     p.currentLoc.rotation = 0
-    local t1 = tween(.5,p.currentLoc,{y=400,rotation=0},tween.easing.linear)
-    local t2 = tween(.5,p.currentLoc,tweenParam,t,f)
-    tween.sequence(t1,t2)
-    
+    --local t1 = tween(.5,p.currentLoc,{y=400,rotation=0},tween.easing.linear)
+    --local t2 = tween(.5,p.currentLoc,tweenParam,t,f)
+    --tween.sequence(t1,t2)
+    f()
     
     
 end
@@ -127,3 +123,4 @@ tween(10,self,{x = 1000},
     {easing =tween.easing.cubicInOut,
     loop = tween.loop.pingpong})
 end
+

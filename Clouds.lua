@@ -21,11 +21,11 @@ function Clouds:init(c,s,h)
         if rndS == 3 then rndS = 1 end
         local randSprite = math.random(1,3)
             if randSprite == 1 then
-                spriteImg = readImage("Platformer Art:Cloud 1")
+                spriteImg = readImage("Documents:OS_Cloud1")
             elseif randSprite == 2 then
-                spriteImg = readImage("Platformer Art:Cloud 2")
+                spriteImg = readImage("Documents:OS_Cloud2")
             elseif randSprite == 3 then
-                spriteImg = readImage("Platformer Art:Cloud 3")
+                spriteImg = readImage("Documents:OS_Cloud3")
             end
         
        self.cloudTable[i] =  {  x = math.random(WIDTH,WIDTH +1500),

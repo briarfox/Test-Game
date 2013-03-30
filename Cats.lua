@@ -8,6 +8,8 @@ function Cats:init(coords,max)
     self.img = readImage("Dropbox:cats")
     self.cats = Animation(self.img,8,12)
     self :loadCats(self.max)
+    self.cats.drawRectBox = false
+    self.cats:scaleRect(.40)
     --dump(self.cats)
     
     
@@ -20,20 +22,8 @@ function Cats:draw()
    -- local x = WIDTH
     --for i,k in pairs(self.enemies) do
    self.cats:draw()
-if DEBUG then
-        pushStyle()
-        color(255, 0, 0, 255)
-        strokeWidth(5)
-        for i,j in pairs(self.cats.spriteName) do
-        local p = self.cats:getRect(i)
-        line(p.x,p.y,p.x+p.width,p.y) 
-        line(p.x,p.y,p.x,p.y+p.height)
-        line(p.x,p.y+p.height,p.x+p.width,p.y+p.height)
-        line(p.x+p.width,p.y,p.x+p.width,p.y+p.height)
-        end
-        
-        popStyle()
-    end
+
+    
 end
 
 function Cats:touched(touch)
@@ -48,7 +38,7 @@ function Cats:loadCats(max)
     for i=1, 5 do
         local rndCat = math.random(1,8)
        self.cats:addSprite(i,self.coords,vec2(80,80))
-    self.cats:speed(i,math.random(4,5),4)
+    self.cats:speed(i,6,4)
         if rndCat == 1 then
             self.cats:addAnimation(i,"left",{15,14,13})
            self.cats.spriteName[i].visible = false
@@ -85,7 +75,7 @@ function Cats:spawn()
       
         self.cats:moveSpawn(spawnCount)
     end
-    local rnd = math.random(1,4)
+    local rnd = math.random(1,3)
     --self.cats.spriteName[1].speed = 10
     if rnd == 1 then
         --print(self.cats.spriteName[1].speed)
@@ -134,6 +124,16 @@ end
     end
     --]]
      
+end
+
+
+function Cats:reset()
+    for i,j in pairs(self.cats.spriteName) do
+        local n = self.cats.spriteName[i]
+        n.currentLoc.x = self.coords.x
+        --n.visible = false
+        
+    end
 end
 
 

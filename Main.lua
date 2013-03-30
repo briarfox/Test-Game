@@ -52,13 +52,13 @@ function setup()
 
 
 --setup classes here
-
+--readImage("Documents:OS_Grass")
     player = Player({x=200,y=160,rotation=0})
     cats = Cats({x=WIDTH+100,y=120,rotation=0},5)
     uI = UI()
    -- enemy = Enemy(25,120,vec2(75,75),3)
     clouds = Clouds(cloudCount,cloudSpeed,cloudHorizon)
-    groundTiles = Ground(.1,readImage("Platformer Art:Block Grass"))
+    groundTiles = Ground(.1,readImage("Documents:OS_Grass"))
     
     
     
@@ -107,10 +107,13 @@ function draw()
         marriageScreen()
     elseif gameMode == gameBaby then
         babyScreen()
+    elseif gameMode == gameLose then
+        GameOver()
     end
     if gameMode == gamePlay then
 
     background(82, 152, 227, 255)
+    sprite("Documents:OurStory",WIDTH/2,HEIGHT/2)
     --Clouds here
     
    clouds:draw()
@@ -166,29 +169,40 @@ if gameMode == gameMenu and touch.state == ENDED then
     
     menuTouched()
     pauseGame = false
-elseif gameMode == gameLove and touch.state == ENDED then  
+elseif gameMode == gameLove and touch.state == ENDED and touch.y >=HEIGHT/2 then  
+    cats:reset()
+    spawnCount = 1
     pauseGame = false
     groundTiles.moving = true
     gameMode = gamePlay
-elseif gameMode == gameMarriage and touch.state == ENDED then  
+elseif gameMode == gameMarriage and touch.state == ENDED and touch.y >=HEIGHT/2 then  
+    cats:reset()
+    spawnCount = 1
     pauseGame = false
     groundTiles.moving = true
     gameMode = gamePlay
---[[elseif gameMode == gameBaby and touch.state == ENDED then  
-    pauseGame = false
-    groundTiles.moving = true
-    gameMode = gamePlay
-    --]]
+elseif gameMode == gameBaby and touch.state == ENDED then
+    
+    gameMode = gameMenu 
+--elseif gameMode == gameBaby and touch.state == ENDED then  
+  --  pauseGame = true
+    --groundTiles.moving = true
+    --gameMode = gameMenu
+elseif gameMode == gameLose and touch.state == ENDED then
+    uI:resetHearts()
+    gameMode = gameMenu
+    
+    
 end
 
 end
 
 function checkLove()
-   if groundTiles.loveCoords.x == player.player.spriteName[1].currentLoc.x + 300 and loveCheck == false then
+   if groundTiles.loveCoords.x == player.player.spriteName[1].currentLoc.x  and loveCheck == false then
     loveCheck = true
     pauseGame = true
     groundTiles.moving = false
-    player:checkPoint(500,gameLove)
+    player:checkPoint(0,gameLove)
     --print("close")
     --print(groundTiles.moving)
   -- gameMode = gameLove
@@ -196,7 +210,7 @@ function checkLove()
 end
 
 function checkMarriage()
-   if groundTiles.marriageCoords.x == player.player.spriteName[1].currentLoc.x +300 and marriageCheck == false then
+   if groundTiles.marriageCoords.x == player.player.spriteName[1].currentLoc.x and marriageCheck == false then
     marriageCheck = true
     
     --print("close")
@@ -209,7 +223,7 @@ function checkMarriage()
 end
 
 function checkBaby()
-   if groundTiles.babyCoords.x == player.player.spriteName[1].currentLoc.x +300 and babyCheck == false then
+   if groundTiles.babyCoords.x == player.player.spriteName[1].currentLoc.x and babyCheck == false then
     babyCheck = true
    -- fireworkssetup()
     --print("close")

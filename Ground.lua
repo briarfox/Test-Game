@@ -16,8 +16,8 @@ function Ground:init(y,t)
     self.myMesh.texture = t
     self.floor = self: setupGround()
     self.loveCoords = vec2(WIDTH,100)
-    self.marriageCoords = vec2(WIDTH,120)
-    self.babyCoords = vec2(WIDTH,50)
+    self.marriageCoords = vec2(WIDTH,100)
+    self.babyCoords = vec2(WIDTH,100)
     
     
     
@@ -27,6 +27,12 @@ function Ground:init(y,t)
     
     
     
+end
+
+function Ground:resetScenes()
+    self.loveCoords = vec2(WIDTH,100)
+    self.marriageCoords = vec2(WIDTH,100)
+    self.babyCoords = vec2(WIDTH,100)
 end
 
 function Ground:draw()
@@ -49,44 +55,58 @@ function Ground:draw()
     self :groundMove(self.speed)
     
     if gameTime >= 5 and dLoveSprite == true then
-        
+        pushMatrix()
         pushStyle()
-        textMode(CENTER)
-        textSize(32)
-        fill(236, 15, 15, 255)
+        local sle = .65
+        --textMode(CENTER)
+        --textSize(32)
+        --fill(236, 15, 15, 255)
+        scale(sle)
         --text("First Comes Love",self.loveCoords.x,self.loveCoords.y +150)
-        sprite("Small World:Tower",self.loveCoords.x,self.loveCoords.y)
+        
+        sprite("Documents:Os_Love",self.loveCoords.x*(1+sle),self.loveCoords.y*(1+sle))
         
         if self.moving == true then
         self.loveCoords.x = self.loveCoords.x - self.speed
         end
         popStyle()
+        popMatrix()
     end
     if gameTime >= 15 and dMarriageSprite == true then
         
+        pushMatrix()
         pushStyle()
-        textMode(CENTER)
-        textSize(32)
-        fill(236, 15, 15, 255)
+        local sle = .65
+        --textMode(CENTER)
+        --textSize(32)
+        --fill(236, 15, 15, 255)
         --text("Then Comes Marriage",self.marriageCoords.x,self.marriageCoords.y +150)
-        sprite("Small World:Church",self.marriageCoords.x,self.marriageCoords.y)
+        scale(sle)
+        sle = sle+1
+        sprite("Documents:OS_Wedding",self.marriageCoords.x*sle,self.marriageCoords.y*sle)
         if self.moving == true then
         self.marriageCoords.x = self.marriageCoords.x - self.speed
         end
         popStyle()
+        popMatrix()
     end
     if gameTime >= 25 and dBabySprite == true then
         
+        pushMatrix()
         pushStyle()
-        textMode(CENTER)
-        textSize(32)
-        fill(236, 15, 15, 255)
+        local sle = .65
+        --textMode(CENTER)
+        --textSize(32)
+        --fill(236, 15, 15, 255)
        -- text("Then Comes the baby in the Baby Caraige",self.babyCoords.x,self.babyCoords.y +150)
-        sprite("Small World:House White",self.babyCoords.x,self.babyCoords.y)
+        scale(sle)
+        sle = sle +1
+        sprite("Documents:OS_Baby",self.babyCoords.x*sle,self.babyCoords.y*sle)
         if self.moving == true then
         self.babyCoords.x = self.babyCoords.x - self.speed
         end
         popStyle()
+        popMatrix()
     end
     
     popMatrix()
