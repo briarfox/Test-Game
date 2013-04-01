@@ -6,16 +6,16 @@
 	<string>Chris &amp; Kristin Houser</string>
 	<key>Buffer Order</key>
 	<array>
-		<string>Animation</string>
-		<string>Collision</string>
 		<string>Main</string>
 		<string>CutScene</string>
 		<string>Clouds</string>
 		<string>Cats</string>
 		<string>Ground</string>
 		<string>Player</string>
-		<string>README</string>
 		<string>UI</string>
+		<string>Animation</string>
+		<string>Functions</string>
+		<string>README</string>
 	</array>
 	<key>Comments</key>
 	<string>Story of our lives</string>
@@ -26,7 +26,6 @@
 	<key>Dependencies</key>
 	<array>
 		<string>backup</string>
-		<string>Houser Library</string>
 	</array>
 	<key>Description</key>
 	<string>Our Story v 0.3</string>

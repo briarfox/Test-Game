@@ -1,5 +1,5 @@
 -- Our Story
-DEBUG = 1
+DEBUG = 0
  
 
 --set game states
@@ -38,6 +38,7 @@ babyCheck = false
 -- Use this function to perform your initial setup
 function setup()
     --tweenBaby()
+   displayMode(FULLSCREEN_NO_BUTTONS) 
     version = 0.3
     --------------------------
     b=Backup("Our Story v"..version)
@@ -162,7 +163,7 @@ end
 
 function touched(touch)
 --groundTiles.moving = true   
-if gameMode == gamePlay and touch.state == ENDED then 
+if gameMode == gamePlay and touch.state == BEGAN then 
 player:touched(touch)
 end
 if gameMode == gameMenu and touch.state == ENDED then
@@ -181,14 +182,14 @@ elseif gameMode == gameMarriage and touch.state == ENDED and touch.y >=HEIGHT/2 
     pauseGame = false
     groundTiles.moving = true
     gameMode = gamePlay
-elseif gameMode == gameBaby and touch.state == ENDED then
-    
+elseif gameMode == gameBaby and touch.state == ENDED and touch.y >=HEIGHT/2 then
+    uI:resetHearts()
     gameMode = gameMenu 
 --elseif gameMode == gameBaby and touch.state == ENDED then  
   --  pauseGame = true
     --groundTiles.moving = true
     --gameMode = gameMenu
-elseif gameMode == gameLose and touch.state == ENDED then
+elseif gameMode == gameLose and touch.state == ENDED and touch.y >=HEIGHT/2 then
     uI:resetHearts()
     gameMode = gameMenu
     
